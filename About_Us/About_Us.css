@@ -1,0 +1,196 @@
+body {
+  padding-top: 35px;
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Page Header */
+.entry-title {
+  background-color: #ed6a18;
+  text-align: center;
+  font-weight: 700;
+  font-size: 2rem;
+  padding: 20px 0;
+  margin: 0 0 40px 0;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  border-bottom: 1px solid #783e02;
+  color: #fefefc;
+}
+
+/* Content Container */
+.hentry {
+  width: 90%;
+  max-width: 1000px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.content-block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.text-block {
+  flex: 1;
+  min-width: 300px;
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background-color: rgba(237, 106, 24, 0.1);
+  border-radius: 8px;
+  position: relative;
+}
+
+.e-content h2 {
+  font-weight: 700;
+  font-size: 1.6rem;
+  border-bottom: 2px solid rgba(25,25,25,0.2);
+  padding-bottom: 6px;
+  margin-bottom: 20px;
+}
+
+.e-content h3 {
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin: 10px 0;
+}
+
+.e-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+/* Missions & Values */
+.e-content ul {
+  list-style-type: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.e-content ul li {
+  background-color: #fefefc;
+  border-left: 4px solid #ed6a18;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.e-content ul li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  background-color: #fff;
+}
+
+.e-content ul li strong {
+  font-weight: 700;
+  color: #ed6a18;
+  display: block;
+  margin-bottom: 5px;
+  font-size: 1.05rem;
+}
+
+/* Flip Cards */
+.flip-card {
+  perspective: 1000px;
+  width: 215px;
+  height: 315px;
+  flex-shrink: 0;
+  cursor: pointer;
+  position: relative;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.8s ease;
+}
+
+.card-inner img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  object-fit: cover;
+  border-radius: 8px;
+  top: 0;
+  left: 0;
+}
+
+.card-inner .back {
+  transform: rotateY(180deg);
+}
+
+/* Back to Top Button */
+#backToTopBtn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  display: none;
+  z-index: 1000;
+  border-radius: 50%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s;
+}
+
+#backToTopBtn:hover {
+  transform: scale(1.1);
+}
+
+
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.6s ease-out;
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .content-block {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .hentry {
+    padding: 20px;
+    gap: 40px;
+  }
+  
+  .text-block {
+    min-width: unset;
+  }
+
+  .floating-element {
+    font-size: 1.5rem;
+  }
+}
+
