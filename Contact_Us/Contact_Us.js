@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+  emailjs.init("wni6TbZAV4__bUigq"); 
   gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 
   //ScrollTrigger Animation
@@ -106,28 +107,34 @@ document.addEventListener("DOMContentLoaded", function () {
   updateProgress();
 
 
-  const phoneInput = document.getElementById("phone");
-  phoneInput.addEventListener("input", function(e) {
-    
-    let value = e.target.value.replace(/\D/g, '');
-    
-   
-    if (value.length > 10) {
-      value = value.substring(0, 10);
-    }
-    
-   
-    if (value.length >= 6) {
-      e.target.value = `(${value.substring(0, 3)}) ${value.substring(3, 6)}-${value.substring(6)}`;
-    } else if (value.length >= 3) {
-      e.target.value = `(${value.substring(0, 3)}) ${value.substring(3)}`;
-    } else {
-      e.target.value = value;
-    }
-    
-    validateField(phoneInput);
-    updateProgress();
-  });
+const phoneInput = document.getElementById("phone");
+
+phoneInput.addEventListener("input", function (e) {
+  let value = e.target.value.replace(/\D/g, ''); // Keep digits only
+
+  if (value.length > 10) value = value.substring(0, 10); // Max 10 digits
+
+  let formatted = '';
+  if (value.length > 6) {
+    formatted = `(${value.substring(0, 3)}) ${value.substring(3, 6)}-${value.substring(6)}`;
+  } else if (value.length > 3) {
+    formatted = `(${value.substring(0, 3)}) ${value.substring(3)}`;
+  } else if (value.length > 0) {
+    formatted = `(${value}`;
+  }
+
+  e.target.value = formatted;
+  validateField(phoneInput);
+  updateProgress();
+});
+
+// Optional: allow pasting numbers without breaking format
+phoneInput.addEventListener('paste', function(e) {
+  const paste = (e.clipboardData || window.clipboardData).getData('text');
+  if (!/^\d+$/.test(paste.replace(/\D/g, ''))) {
+    e.preventDefault();
+  }
+});
 
   inputs.forEach((input) => {
     if (input.type !== "tel") { 
@@ -402,13 +409,30 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  async function submitForm(formData) {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve({ ok: true });
-      }, 1500);
-    });
+async function submitForm(formData) {
+const params = {
+  full_name: formData.get("firstName") + " " + formData.get("lastName"),
+  email: formData.get("email"),
+  phone: formData.get("phone"),
+  location: formData.get("location"),
+  date: formData.get("date"),
+  subject: formData.get("subject"),
+  details: formData.get("details")
+};
+
+  try {
+    // Send to business
+    await emailjs.send("service_99siicg", "template_avgh3vn", params);
+
+    // Auto-reply to client
+    await emailjs.send("service_99siicg", "template_gmeaxrg", params);
+
+    return { ok: true };
+  } catch (err) {
+    console.error("EmailJS send error:", err);
+    return { ok: false };
   }
+}
 
   function showMessage(text, type) {
     message.textContent = text;
