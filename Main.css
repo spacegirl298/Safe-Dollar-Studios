@@ -119,12 +119,8 @@ h3{
     display: flex;
   }
 
-  .carousel-container {
-    width: 90%; /* Adjust for fixed navbar height */
-  }
-  .carousel-container img{
-    width: 100%;
-
+  main{
+    width: 90%;
   }
 
   .nav-menu {

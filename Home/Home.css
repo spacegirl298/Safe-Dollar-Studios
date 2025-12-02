@@ -429,6 +429,8 @@ html {
   opacity: 1;
 }
 
+
+
 #backToTopBtn:hover,
 #backToTopBtn:focus {
   background-color: var(--accent-color);
@@ -436,8 +438,27 @@ html {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
   .hamburger {
     display: flex;
+  }
+
+  .carousel-container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .carousel-slide img {
+    width: 100%;
+    height: auto;
   }
 
   .nav-menu {
@@ -447,6 +468,7 @@ html {
     flex-direction: column;
     background-color: var(--dark-color);
     width: 100%;
+    max-width: 100%;
     text-align: center;
     transition: 0.3s;
     box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
