@@ -352,12 +352,14 @@ html {
 .nav-container {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
   gap: 30px;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+  
 }
+
+
 
 .nav-card {
   flex: 0 0 250px;
@@ -429,8 +431,6 @@ html {
   opacity: 1;
 }
 
-
-
 #backToTopBtn:hover,
 #backToTopBtn:focus {
   background-color: var(--accent-color);
@@ -446,9 +446,10 @@ html {
     overflow-x: hidden;
   }
 
-  .hamburger {
-    display: flex;
-  }
+  .nav-container {
+    width: 90%;
+    gap: 1px;
+  } 
 
   .carousel-container {
     width: 100%;
@@ -459,24 +460,6 @@ html {
   .carousel-slide img {
     width: 100%;
     height: auto;
-  }
-
-  .nav-menu {
-    position: fixed;
-    left: -100%;
-    top: 70px;
-    flex-direction: column;
-    background-color: var(--dark-color);
-    width: 100%;
-    max-width: 100%;
-    text-align: center;
-    transition: 0.3s;
-    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-    padding: 2rem 0;
-  }
-
-  .nav-menu.active {
-    left: 0;
   }
 
   .hero h1 {
@@ -508,7 +491,7 @@ html {
 
 @media (max-width: 480px) {
   .nav-container {
-    flex-direction: column;
+    flex:auto;
     align-items: center;
   }
 
@@ -517,6 +500,7 @@ html {
     height: 300px;
   }
 
+  
   .hero h1 {
     font-size: 2rem;
   }

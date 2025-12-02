@@ -179,6 +179,11 @@ main {
     flex-direction: column;
     text-align: center;
   }
+
+  .nav-container {
+    width: 90%;
+    gap: 1px;
+  } 
   
   .hentry {
     padding: 20px;
@@ -192,5 +197,7 @@ main {
   .floating-element {
     font-size: 1.5rem;
   }
+
+
 }
 
