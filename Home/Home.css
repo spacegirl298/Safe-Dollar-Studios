@@ -444,11 +444,13 @@ html {
 
   body {
     overflow-x: hidden;
+    width: 100%;
   }
 
   .nav-container {
-    width: 90%;
-    gap: 1px;
+    flex-wrap: wrap;
+    gap: 15px;
+    width: 100%;
   } 
 
   .carousel-container {
@@ -475,7 +477,7 @@ html {
   }
 
   .nav-card {
-    flex: 0 0 200px;
+    flex: 0 0 calc(50% - 7.5px);
     height: 280px;
   }
 
@@ -491,16 +493,16 @@ html {
 
 @media (max-width: 480px) {
   .nav-container {
-    flex:auto;
     align-items: center;
+    width: 100%;
   }
 
   .nav-card {
-    flex: 0 0 250px;
-    height: 300px;
+    flex: 0 0 100%;
+    width: 90%;
+    height: 250px;
   }
 
-  
   .hero h1 {
     font-size: 2rem;
   }
