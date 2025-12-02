@@ -189,6 +189,10 @@ main {
     padding: 20px;
     gap: 40px;
   }
+
+  main {
+    padding: 15px 0px;
+  }
   
   .text-block {
     min-width: unset;
