@@ -292,7 +292,8 @@ body {
   }
   
   .card-inner{
-    width :410px
+    width :350px;
+    margin-right: 32px;
   }
   .team-card {
     flex: 0 0 280px !important;
@@ -370,7 +371,7 @@ body {
   }
   
   .team-carousel {
-    gap: 1rem;
+    gap: 1.1rem;
     padding: -0.5px;
   }
   
