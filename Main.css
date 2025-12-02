@@ -119,6 +119,14 @@ h3{
     display: flex;
   }
 
+  .carousel-container {
+    width: 90%; /* Adjust for fixed navbar height */
+  }
+  .carousel-container img{
+    width: 100%;
+
+  }
+
   .nav-menu {
     position: absolute;
     top: 64px;
@@ -227,6 +235,9 @@ footer {
     gap: 15px;
   }
 
+  .nav_logo{
+    margin-right: 30px ;
+  }
   .footer-nav img {
     width: 25px;
   }
