@@ -309,7 +309,7 @@ body {
   }
   
   .card-back-overlay p {
-    font-size: 0.85rem;
+    font-size: 0.5rem;
     -webkit-line-clamp: 5;
   }
 }
@@ -401,7 +401,7 @@ body {
 
 
   .card-back-overlay p{
-    font-size: 1.2rem;
+    font-size: 1rem;
     padding: 30px;
   }
 
